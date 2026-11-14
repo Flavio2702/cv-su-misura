@@ -1,0 +1,20 @@
+{
+  "max_pagine": 1,
+  "quota_alta": 0.35,
+  "obbligatori": [
+    "Ada Campione",
+    "ada@example.invalid",
+    "2024",
+    "2025",
+    "2022",
+    "2023",
+    "Diploma in tecniche artigianali"
+  ],
+  "titoli_esperienze": [
+    "Addetta al catalogo",
+    "Assistente di laboratorio"
+  ],
+  "link_obbligatori": [
+    "mailto:ada@example.invalid"
+  ]
+}

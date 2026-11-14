@@ -1,0 +1,11 @@
+CV su misura
+Copyright 2026 Flavio2702
+
+Contributi originali concedibili sotto Apache License 2.0.
+Distribuzione adattata da un progetto locale fornito dall'autore, con assistenza
+AI (OpenAI Codex). Non è una riscrittura indipendente né una certificazione di titolarità.
+Gli script genera_cv.py, verifica_pdf.py e verifica_cv.py conservano o adattano
+logica del progetto sorgente; configurazione, test, demo e documentazione pubblica
+sono stati sviluppati per questa distribuzione.
+Le dipendenze mantengono le proprie licenze: THIRD_PARTY_NOTICES.md.
+Nessun template, fotografia o altro asset Canva viene redistribuito.

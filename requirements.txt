@@ -1,0 +1,6 @@
+# Ambiente PDF verificato su Windows x64 con Python 3.14
+charset-normalizer==3.5.2
+pillow==13.0.0
+pypdf==6.11.0
+pypdfium2==5.15.0
+reportlab==4.5.1

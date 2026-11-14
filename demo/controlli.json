@@ -1,0 +1,26 @@
+{
+  "pagine": 1,
+  "requisiti": 3,
+  "must_dimostrati": 2,
+  "coperti": 2,
+  "in_alto": 2,
+  "errori": [],
+  "esito": "superato",
+  "limite": "Controllo euristico: revisione umana dei fatti necessaria",
+  "metadati": {
+    "/Author": "",
+    "/CreationDate": "D:20000101000000+00'00'",
+    "/Creator": "cv-su-misura",
+    "/Keywords": "",
+    "/ModDate": "D:20000101000000+00'00'",
+    "/Producer": "ReportLab PDF Library - (opensource)",
+    "/Subject": "",
+    "/Title": "Curriculum vitae",
+    "/Trapped": "/False"
+  },
+  "xmp_presente": false,
+  "allegati": 0,
+  "ai": "Risposta sintetica predisposta; nessuna chiamata live",
+  "secondo_lettore": "Opzionale; esito effettivo nel log di esecuzione",
+  "controllo_visivo": "Richiede revisione umana; vedere docs/VERIFICHE.md"
+}

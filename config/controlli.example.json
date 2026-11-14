@@ -1,0 +1,14 @@
+{
+  "max_pagine": 1,
+  "quota_alta": 0.35,
+  "obbligatori": [],
+  "titoli_esperienze": [],
+  "link_obbligatori": [],
+  "vietati": [
+    "[DA ",
+    "[INSERIRE",
+    "filecite",
+    "**",
+    "Note d'uso"
+  ]
+}
