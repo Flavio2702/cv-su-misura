@@ -1,6 +1,6 @@
 # Verifiche della distribuzione
 
-Data: 14 novembre 2026. Test su dati sintetici, senza credenziali personali o
+Date: 14–15 novembre 2026. Test su dati sintetici, senza credenziali personali o
 chiamate a pagamento. Le ricevute dettagliate locali e l'inventario privato non
 sono inclusi nel repository.
 
@@ -42,6 +42,11 @@ del sorgente. Impronte dei 90 file originali esaminati invariate. Link locali va
 i riferimenti pubblici sono stati controllati via HTTP prima della pubblicazione.
 
 ## CI e limiti delle prove
+
+Il primo run CI ha rilevato differenze nella compressione del PDF tra versioni
+Python/piattaforme: metadati e contenuti delle pagine erano identici. Il generatore
+ora scrive i flussi pagina senza compressione, conservando testo e impaginazione;
+il confronto della demo resta integrale, senza ignorare differenze nel PDF.
 
 Il [workflow](../.github/workflows/verify.yml) esegue installazione, test, demo e
 manifest su Windows/Linux con Python 3.12, 3.13 e 3.14; un job separato controlla

@@ -19,6 +19,8 @@ I tre script derivano dal progetto sorgente. La personalizzazione del verificato
 è stata spostata in JSON locale; il generatore mantiene struttura e stili a una
 colonna, aggiungendo metadati neutri, validazione dei link e scrittura esclusiva.
 L'estrattore mantiene pypdf e PDFium; non scrive più il percorso assoluto nel report.
+Il PDF usa flussi pagina non compressi per evitare variazioni di serializzazione
+tra versioni zlib; le dimensioni aumentano di pochi kilobyte per la demo.
 La validazione CSV precede i controlli; i messaggi sui fatti non ripetono i valori.
 
 La demo usa una risposta sintetica predisposta: seleziona punti documentati nel

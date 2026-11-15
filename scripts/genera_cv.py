@@ -85,7 +85,9 @@ def genera(sorgente, destinazione):
     buffer = io.BytesIO()
     SimpleDocTemplate(
         buffer, pagesize=A4, leftMargin=40, rightMargin=40, topMargin=28, bottomMargin=24,
+        # Evita differenze di byte tra versioni zlib, senza cambiare testo o layout.
         title='Curriculum vitae', author='', subject='', creator='cv-su-misura', invariant=1,
+        pageCompression=0,
     ).build(storia)
     destinazione.parent.mkdir(parents=True, exist_ok=True)
     with destinazione.open('xb') as stream:

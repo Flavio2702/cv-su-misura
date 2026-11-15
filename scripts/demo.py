@@ -71,19 +71,6 @@ def main():
             checks = build(folder)
             for name in ARTIFACTS:
                 if (folder / name).read_bytes() != (ROOT / 'demo' / name).read_bytes():
-                    if name == 'CV.pdf':
-                        from pypdf import PdfReader
-                        expected = PdfReader(ROOT / 'demo' / name)
-                        actual = PdfReader(folder / name)
-                        print('Diagnostica demo sintetica: metadati identici =', expected.metadata == actual.metadata)
-                        print('Diagnostica demo sintetica: contenuti pagina identici =',
-                              [p.get_contents().get_data() for p in expected.pages] ==
-                              [p.get_contents().get_data() for p in actual.pages])
-                        a, b = (ROOT / 'demo' / name).read_bytes(), (folder / name).read_bytes()
-                        offset = next((i for i, (x, y) in enumerate(zip(a, b)) if x != y), min(len(a), len(b)))
-                        print('Primo byte diverso:', offset, 'dimensioni:', len(a), len(b))
-                        print('Atteso:', repr(a[max(0, offset-30):offset+90]))
-                        print('Generato:', repr(b[max(0, offset-30):offset+90]))
                     raise SystemExit('Demo diversa: ' + name)
         print('Demo riproducibile: 5 artefatti identici.')
     else:
