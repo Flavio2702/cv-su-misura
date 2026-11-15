@@ -15,6 +15,9 @@ sono inclusi nel repository.
 - 32 test automatici superati, nessun test saltato. PDF generati e aperti realmente.
 - Demo rigenerata: Markdown, PDF, JSON e README identici byte per byte; PNG
   confrontato su ogni pixel e metadato, indipendentemente dalla compressione.
+  Il PNG distribuito è il riferimento Windows. Linux confronta la nuova anteprima
+  con il rendering del PDF distribuito sullo stesso sistema; il PDF resta identico
+  byte per byte. La CI Windows controlla direttamente anche l'immagine distribuita.
 - Una pagina, 3 requisiti, 2 obbligatori dimostrati presenti anche nella parte alta.
 - Secondo lettore pdftotext 4.00 (Xpdf) eseguito aggiungendolo al PATH: nessun errore o avviso.
   Provata anche l'assenza: avviso esplicito, non una falsa attestazione di doppia lettura.
@@ -51,6 +54,10 @@ il confronto della demo resta integrale, senza ignorare differenze nel PDF.
 Anche i PNG possono essere compressi diversamente: si confrontano tutti i pixel
 e i metadati decodificati. Due test verificano che una ricompressione passi e che
 un solo pixel modificato sia rifiutato; nessuna tolleranza visiva aggiunta.
+Il rendering dei font standard differisce tra Windows e Linux: il riferimento
+visivo è quindi locale al renderer, mentre contenuto, layout PDF e metadati sono
+confrontati integralmente su entrambe le piattaforme. Non si dichiara identità
+dei pixel tra sistemi operativi.
 
 Il [workflow](../.github/workflows/verify.yml) esegue installazione, test, demo e
 manifest su Windows/Linux con Python 3.12, 3.13 e 3.14; un job separato controlla
