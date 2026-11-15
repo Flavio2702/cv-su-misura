@@ -70,6 +70,7 @@ python scripts/release_check.py
 ```
 
 `--check` rigenera in una directory temporanea e confronta testo Markdown, PDF,
-PNG e riepilogo stabile con gli artefatti distribuiti. Non sovrascrive la demo.
+PNG e riepilogo stabile con gli artefatti distribuiti. Per PNG confronta ogni pixel
+e metadato, per gli altri file ogni byte. Non sovrascrive la demo.
 Le versioni dipendenze sono fissate; cambiare font, librerie o rendering può
 cambiare i byte. I risultati pubblicati distinguono i controlli locali da quelli CI.

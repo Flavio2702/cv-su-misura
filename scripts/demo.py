@@ -3,12 +3,22 @@ import argparse
 import json
 import tempfile
 from pathlib import Path
+from PIL import Image
 from genera_cv import genera
 from verifica_pdf import verifica as verifica_pdf
 from verifica_cv import verifica as verifica_cv
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ('CV.md', 'CV.pdf', 'anteprima.png', 'controlli.json', 'README.md')
+
+
+def identici(actual, expected):
+    """PNG: confronta ogni pixel e metadato, senza dipendere dal compressore."""
+    if actual.suffix == '.png':
+        with Image.open(actual) as a, Image.open(expected) as b:
+            return (a.mode == b.mode and a.size == b.size and a.info == b.info
+                    and a.tobytes() == b.tobytes())
+    return actual.read_bytes() == expected.read_bytes()
 
 
 def build(destination):
@@ -70,9 +80,9 @@ def main():
             folder = Path(tmp) / 'demo'
             checks = build(folder)
             for name in ARTIFACTS:
-                if (folder / name).read_bytes() != (ROOT / 'demo' / name).read_bytes():
+                if not identici(folder / name, ROOT / 'demo' / name):
                     raise SystemExit('Demo diversa: ' + name)
-        print('Demo riproducibile: 5 artefatti identici.')
+        print('Demo riproducibile: PDF e testi identici; PNG identico in ogni pixel e metadato.')
     else:
         checks = build(args.output)
         print('Demo generata in una nuova directory.')

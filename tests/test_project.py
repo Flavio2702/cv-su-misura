@@ -14,6 +14,8 @@ import genera_cv
 import verifica_cv
 import verifica_pdf
 import prepara
+import demo
+from PIL import Image
 from pypdf import PdfReader, PdfWriter
 
 
@@ -263,6 +265,22 @@ class ProjectTests(unittest.TestCase):
     def test_skill_entrypoints_match(self):
         self.assertEqual((ROOT / '.agents/skills/cv-e-lavori/SKILL.md').read_bytes(),
                          (ROOT / '.claude/skills/cv-e-lavori/SKILL.md').read_bytes())
+
+    def test_png_comparison_accepts_only_encoding_changes(self):
+        a, b = self.folder / 'a.png', self.folder / 'b.png'
+        with Image.new('RGB', (20, 20), 'white') as picture:
+            picture.save(a, compress_level=0)
+            picture.save(b, compress_level=9)
+        self.assertNotEqual(a.read_bytes(), b.read_bytes())
+        self.assertTrue(demo.identici(a, b))
+
+    def test_png_comparison_rejects_single_changed_pixel(self):
+        a, b = self.folder / 'a.png', self.folder / 'b.png'
+        with Image.new('RGB', (20, 20), 'white') as picture:
+            picture.save(a)
+            picture.putpixel((10, 10), (254, 255, 255))
+            picture.save(b)
+        self.assertFalse(demo.identici(a, b))
 
 
 if __name__ == '__main__':

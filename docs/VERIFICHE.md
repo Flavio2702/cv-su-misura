@@ -12,8 +12,9 @@ sono inclusi nel repository.
   non sovrascrive nulla. Avvio rapido eseguito fino alla demo e ai controlli.
 - ReportLab 4.5.1, pypdf 6.11.0, pypdfium2 5.15.0, Pillow 13.0.0,
   charset-normalizer 3.5.2. Dipendenze fissate in requirements.txt.
-- 30 test automatici superati, nessun test saltato. PDF generati e aperti realmente.
-- Demo rigenerata: Markdown, PDF, PNG, JSON e README identici ai 5 artefatti distribuiti.
+- 32 test automatici superati, nessun test saltato. PDF generati e aperti realmente.
+- Demo rigenerata: Markdown, PDF, JSON e README identici byte per byte; PNG
+  confrontato su ogni pixel e metadato, indipendentemente dalla compressione.
 - Una pagina, 3 requisiti, 2 obbligatori dimostrati presenti anche nella parte alta.
 - Secondo lettore pdftotext 4.00 (Xpdf) eseguito aggiungendolo al PATH: nessun errore o avviso.
   Provata anche l'assenza: avviso esplicito, non una falsa attestazione di doppia lettura.
@@ -47,6 +48,9 @@ Il primo run CI ha rilevato differenze nella compressione del PDF tra versioni
 Python/piattaforme: metadati e contenuti delle pagine erano identici. Il generatore
 ora scrive i flussi pagina senza compressione, conservando testo e impaginazione;
 il confronto della demo resta integrale, senza ignorare differenze nel PDF.
+Anche i PNG possono essere compressi diversamente: si confrontano tutti i pixel
+e i metadati decodificati. Due test verificano che una ricompressione passi e che
+un solo pixel modificato sia rifiutato; nessuna tolleranza visiva aggiunta.
 
 Il [workflow](../.github/workflows/verify.yml) esegue installazione, test, demo e
 manifest su Windows/Linux con Python 3.12, 3.13 e 3.14; un job separato controlla
